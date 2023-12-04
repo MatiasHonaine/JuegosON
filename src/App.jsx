@@ -1,14 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 import MainRoutes from './routes/MainRouter';
+import { CartProvider } from './context';
 
 
 
 function App() {
-  return <div>
+  return (
+    <CartProvider>
+      <div>
+        <MainRoutes />
+      </div>;
+    </CartProvider>
+  )
 
-    <MainRoutes />
-  </div>;
 }
 
 export default App;

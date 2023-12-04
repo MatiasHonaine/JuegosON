@@ -8,31 +8,52 @@ import LoaderComponent from "../components/LoaderComponent/LoaderComponent";
 const Item = () => {
 
     const [product, setProduct] = useState({});
-    const { id } = useParams()
 
-    const [loading, setLoading] = useState(true)
+    const { id } = useParams();
+
+    const [loading, setLoading] = useState(true);
+
+
 
     useEffect(() => {
+
         axios
+
             .get(`https://dummyjson.com/products/${id}`)
-            .then(res => {
-                setProduct(res.data)
+
+            .then((res) => {
+
+                // Simular una demora de 2 segundos con setTimeout
+
+                setTimeout(() => {
+
+                    setProduct(res.data);
+
+                }, 2000);
+
             })
-            .catch(error => console.log(error))
-            .finally(() => setLoading(false))
 
-    }, [id])
+            .finally(() => {
+
+                // Simular una demora adicional de 2 segundos antes de cambiar el estado de carga
+
+                setTimeout(() => {
+
+                    setLoading(false);
+
+                }, 2000);
+
+            });
+
+    }, [id]);
 
 
-    {
-        loading ? (
-            <LoaderComponent />
-        ) : (
-            <ItemDetailContainer product={product} />
-        )
-    }
 
-    return <ItemDetailContainer product={product} loading={loading} />
-}
+    // hacemos el rendering condicional
+
+    return loading ? <LoaderComponent /> : <ItemDetailContainer product={product} />;
+
+};
+
 
 export default Item;

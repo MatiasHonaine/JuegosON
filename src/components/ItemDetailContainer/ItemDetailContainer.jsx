@@ -1,7 +1,8 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetailContainer = ({product}) =>{
+const ItemDetailContainer = ({ product }) => {
     return (
         <div
             style={{
@@ -13,19 +14,20 @@ const ItemDetailContainer = ({product}) =>{
         >
 
 
-            
-                return (
-                    <Card key={product.id} style={{ width: "18rem", margin: 20, height: "500px" }}>
 
-                        <Card.Img variant="top" src={product.thumbnail} />
+            return (
+            <Card key={product.id} style={{ width: "18rem", margin: 20, height: "500px" }}>
 
-                        <Card.Body>
-                            <Card.Title>{product.title}</Card.Title>
-                            <Card.Text>{product.description}</Card.Text>
-                        </Card.Body>
-                    </Card>
-                );
-            
+                <Card.Img variant="top" src={product.thumbnail} />
+
+                <Card.Body>
+                    <Card.Title>{product.title}</Card.Title>
+                    <Card.Text>{product.description}</Card.Text>
+                    <ItemCount />
+                </Card.Body>
+            </Card>
+            );
+
         </div>
     )
 }
