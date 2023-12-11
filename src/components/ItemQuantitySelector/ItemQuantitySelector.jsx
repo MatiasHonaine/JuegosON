@@ -3,33 +3,31 @@ import { Button } from 'react-bootstrap'
 import { AddItemButton } from '../AddItemButton';
 
 
-const ItemQuantitySelector = () => {
-
-    const [quantity, setQuantity] = React.useState(1);
+const ItemQuantitySelector  = () => {
+    
+    const [count, setCount] = React.useState(0);
 
 
     const handleAddProduct = () => {
-        setQuantity(quantity + 1);
-    }
+        setCount(count + 1);
+        
+    };
 
-    const handleSubstractProduct = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
+    const handleRemoveProduct = () => {
+        if(count > 1){
+            setCount(count - 1)
         }
-    }
 
-    const handleResetQuantity = () => {
-        setQuantity(1);
-    }
+    };
 
     return (
         <div>
-            <Button onClick={handleSubstractProduct}>-</Button>
-            <input type="number" value={quantity} disabled />
-            <Button onClick={handleAddProduct}>+</Button>
-            <AddItemButton quantity={quantity} handleResetQuantity={handleResetQuantity} />
+            <button onClick={handleRemoveProduct}>-</button>
+            <input type='number' value={count} />
+            <button onClick={handleAddProduct}>+</button>
+            <AddItemButton count={count}/>
         </div>
     )
 }
 
-export default ItemQuantitySelector;
+export default ItemQuantitySelector ;
