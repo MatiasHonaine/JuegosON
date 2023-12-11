@@ -5,27 +5,29 @@ import { AddItemButton } from '../AddItemButton';
 
 const ItemQuantitySelector  = () => {
     
-    const [count, setCount] = React.useState(0);
+    const [quantity, setQuantity] = React.useState(1);
 
 
     const handleAddProduct = () => {
-        setCount(count + 1);
-        
-    };
+        setQuantity(quantity + 1);
+    }
 
-    const handleRemoveProduct = () => {
-        if(count > 1){
-            setCount(count - 1)
+    const handleSubstractProduct = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
         }
+    }
 
-    };
+    const handleResetQuantity = () => {
+        setQuantity(1);
+    }
 
     return (
         <div>
-            <button onClick={handleRemoveProduct}>-</button>
-            <input type='number' value={count} />
-            <button onClick={handleAddProduct}>+</button>
-            <AddItemButton count={count}/>
+            <Button onClick={handleSubstractProduct}>-</Button>
+            <input type="number" value={quantity} disabled />
+            <Button onClick={handleAddProduct}>+</Button>
+            <AddItemButton quantity={quantity} handleResetQuantity={handleResetQuantity} />
         </div>
     )
 }
