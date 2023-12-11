@@ -5,14 +5,18 @@ import { CartContext } from "../../context";
 
 const CartWidget = () => {
 
-    const { state } = useContext(CartContext)
+    const { itemCount } = React.useContext(CartContext);
 
+    const iconStyles = {
+        fontSize: "1.3rem",
+        paddingRight: "10px",
+    };
     return (
         <div>
-            <FontAwesomeIcon style={{ fontSize: '1.4rem', paddingRight: '10px' }} icon={faCartShopping} />
-            <span style={{ fontSize: '1.4 rem' }}>{state}</span>
+            <FontAwesomeIcon style={iconStyles} icon={faCartShopping} />
+            <span style={{ fontSize: "1.3rem" }}>{itemCount}</span>
         </div>
-    )
+    );
 }
 
 export default CartWidget;

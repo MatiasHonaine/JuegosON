@@ -4,12 +4,8 @@ export const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
 
-    const [state, setState] = React.useState(0);
+    const [itemCount, setItemCount] = React.useState(0);
 
-    return (
-        <CartContext.Provider value={{ state, setState }}>
-            {children}
-        </CartContext.Provider>
-    )
+    return <CartContext.Provider value={{ itemCount, setItemCount }}>{children}</CartContext.Provider>;
 
 }

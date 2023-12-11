@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import ItemCount from "../ItemCount/ItemCount";
+import ItemQuantitySelector from "../ItemQuantitySelector";
 
 const ItemDetailContainer = ({ product }) => {
     return (
@@ -23,7 +23,7 @@ const ItemDetailContainer = ({ product }) => {
                 <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
                     <Card.Text>{product.description}</Card.Text>
-                    <ItemCount />
+                    <ItemQuantitySelector   />
                 </Card.Body>
             </Card>
             );
