@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react'
 
 export const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
 
-    const [itemCount, setItemCount] = React.useState(0);
+    const [itenCount, setItemCount] = React.useState(0);
 
-    return <CartContext.Provider value={{ itemCount, setItemCount }}>{children}</CartContext.Provider>;
-
+    return (
+        <CartContext.Provider value={{ itenCount, setItemCount }}>{children}</CartContext.Provider>
+    )
 }
