@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-import {MainRouter} from "./routes/MainRouter";
 
+import { MainRouter } from './routes/MainRouter'
 
 import { CartProvider } from "./context/CartContext";
 

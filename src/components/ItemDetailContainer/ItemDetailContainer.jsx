@@ -26,7 +26,7 @@ const ItemDetailContainer = ({ product }) => {
                     <Card.Text>{product.description}</Card.Text>
 
                 </Card.Body>
-                <ItemQuantitySelector />
+                <ItemQuantitySelector/>
             </Card>
             );
 

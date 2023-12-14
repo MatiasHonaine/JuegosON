@@ -5,7 +5,7 @@ import Category from '../pages/Category';
 import Item from '../pages/Item';
 
 
-const MainRoutes = () => {
+export const MainRouter = () => {
     return (
         <BrowserRouter>
             <NavBarComponent />
@@ -17,5 +17,3 @@ const MainRoutes = () => {
         </BrowserRouter>
     )
 }
-
-export default MainRoutes;

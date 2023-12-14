@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap"
 import { Link } from 'react-router-dom';
 
 const ItemListContainer = ({ products }) => {
-
+console.log(products)
     return (
         <div
             style={{
