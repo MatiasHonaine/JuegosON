@@ -1,51 +1,19 @@
 import React from "react";
+import { useAllProducts } from "../hooks/useProducts";
+import { LoaderComponent, ItemListContainer } from "../components";
 
-import { useEffect, useState } from 'react';
-import axios from "axios";
+export const Home = () => {
+  const { products, loading, error } = useAllProducts(8);
 
-import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
-import { getDocs, getFirestore, collection, getDoc, doc, query, where} from "firebase/firestore";
-
-
-
-const Home = () => {
-
-    /*const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get('https://dummyjson.com/products/?limit=8')
-            .then(res => {
-                setProducts(res.data.products)
-            })
-            .catch(error => console.log(error))
-
-    }, [])*/
-
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-
-
-    useEffect(() => {
-        const db = getFirestore();
-        const collectionRef = collection(db, "products");
-
-        getDocs(collectionRef)
-            .then((res) => {
-                const data = res.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setProducts(data);
-            })
-            .catch(() => setError(true))
-            .finally(() => setLoading(false));
-    }, []);
-
-
-
-    return <ItemListContainer products={products} />
-}
-
-export default Home;
+  return (
+    <div>
+      {loading ? (
+        <LoaderComponent />
+      ) : error ? (
+        <div>error</div>
+      ) : (
+        <ItemListContainer products={products} />
+      )}
+    </div>
+  );
+};
